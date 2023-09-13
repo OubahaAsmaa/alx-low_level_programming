@@ -1,14 +1,16 @@
 #include "main.h"
+
 /**
-* print_alphabet -Print alphabet using _putchar.
-*
-* Return: always void
-*/
+ * print_alphabet - alphabets
+ */
 void print_alphabet(void)
 {
-	char ch;
+	int i;
 
-	for (ch = 97; ch <= 122; ch++)
-		_putchar(ch);
+	for (i = 97; i < 123; i++)
+	{
+		_putchar(i);
+	}
 	_putchar('\n');
 }
+
