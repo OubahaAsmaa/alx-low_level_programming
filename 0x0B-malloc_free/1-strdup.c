@@ -21,3 +21,9 @@ char *_strdup(char *str)
 
 	if (hk == NULL)
 		return (NULL);
+
+	for (r = 0; str[r]; r++)
+		hk[r] = str[r];
+
+	return (hk);
+}
