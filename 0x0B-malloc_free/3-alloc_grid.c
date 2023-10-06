@@ -1,42 +1,43 @@
+#include "main.h"
 #include <stdlib.h>
-#include <string.h>
 /**
- * alloc_grid - function that prints a string, followed by a new line
- * @width: The string to print
- * @height: The string to print
- * Return: nothing.
+ * alloc_grid - prototype main
+ * @width: width
+ * @height: height
+ * Return: as
  */
 int **alloc_grid(int width, int height)
 {
-	int **a;
-	int i, j;
+	int **as;
+	int x, y;
 
-	if (height <= 0 || width <= 0)
-	return (NULL);
-	a = malloc(sizeof(int *) * height);
-	if (a == NULL)
-	{
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	}
-	for (i = 0; i < height; i++)
+
+	as = malloc(sizeof(int *) * height);
+
+	if (as == NULL)
+		return (NULL);
+
+	for (x = 0; x < height; x++)
 	{
-		a[i] = malloc(sizeof(int) * width);
+		as[x] = malloc(sizeof(int) * width);
 
-		if (a[i] == NULL)
+		if (as[x] == NULL)
 		{
-			for (; i >= 0; i--)
-				free(a[i]);
+			for (; x >= 0; x--)
+				free(as[x]);
 
-			free(a);
+			free(as);
 			return (NULL);
 		}
 	}
-	for (i = 0; i < height; i++)
+
+	for (x = 0; x < height; x++)
 	{
-		for (j = 0; j < width ; j++)
-		{
-			a[i][j] = 0;
-		}
+		for (y = 0; y < width; y++)
+			as[x][y] = 0;
 	}
-		return (a);
-}	
+
+	return (as);
+}
